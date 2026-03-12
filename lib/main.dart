@@ -1,18 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:test_app/provider/color_provider.dart';
+import 'package:test_app/router/router.dart';
 
 void main() {
   runApp(
-
-      const MainApp());
+      MultiProvider(
+          providers: [
+            ChangeNotifierProvider(create: (_) => ColorProvider()),
+          ],
+     child: const MainApp())
+  );
 }
+// ignore: prefer_match_file_name
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
+      routerConfig: router,
+    );
   }
+
 }
-
-
-  
