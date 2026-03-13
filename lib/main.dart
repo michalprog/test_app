@@ -12,7 +12,7 @@ void main() {
      child: const MainApp())
   );
 }
-// ignore: prefer_match_file_name
+/// main app for managing other screens
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
 

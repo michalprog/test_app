@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'dart:ui';
 
+///function for changing colors for  color provider
 Color randomColor() {
   return Color.fromARGB(
     255,

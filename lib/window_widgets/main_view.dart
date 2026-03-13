@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:test_app/provider/color_provider.dart';
 
+///view for screen where background color changing randomly generated color
 class MainView extends StatelessWidget {
   const MainView({super.key});
 
