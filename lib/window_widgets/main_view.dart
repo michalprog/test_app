@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:test_app/provider/color_provider.dart';
 
@@ -9,6 +10,10 @@ class MainView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => context.goNamed("settings"),
+       child: Icon(Icons.settings),
+      ),
       body: Consumer<ColorProvider>(
         builder: (context, colorProvider, child) {
           return InkWell(
