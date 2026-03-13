@@ -1,12 +1,16 @@
 import 'dart:math';
 import 'dart:ui';
 
+import 'package:test_app/models/color_model.dart';
+
 ///function for changing colors for  color provider
-Color randomColor() {
+Color randomColor(ColorModel colorModel) {
+const int alpha=255;
+
   return Color.fromARGB(
-    255,
-    Random().nextInt(255),
-    Random().nextInt(255),
-    Random().nextInt(255),
+    alpha,
+    Random().nextInt(colorModel.maxRed-colorModel.minRed+1)+colorModel.minRed,//Red
+    Random().nextInt(colorModel.maxGreen-colorModel.minGreen+1)+colorModel.minGreen, //Green
+    Random().nextInt(colorModel.maxBlue-colorModel.minBlue+1)+colorModel.minBlue, // Blue
   );
 }
