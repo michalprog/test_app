@@ -1,7 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:test_app/enums_consts/enums.dart';
 
+/// model for saving range to generate random color
 class ColorModel {
   int _minRed = 0;
   int _maxRed = 255;
@@ -19,7 +19,11 @@ class ColorModel {
   int get maxBlue => _maxBlue;
 
   /// function which set the color for type used by slider
-  void changeColors(ColorType type, {required int minRgb, required int maxRgb}) {
+  void changeColors(
+    ColorType type, {
+    required int minRgb,
+    required int maxRgb,
+  }) {
     switch (type) {
       case ColorType.red:
         {
@@ -41,18 +45,16 @@ class ColorModel {
         }
     }
   }
-  RangeValues getRange(ColorType type)
-  {
-    switch(type)
-        {
+
+  /// function for getting values for sliders
+  RangeValues getRange(ColorType type) {
+    switch (type) {
       case ColorType.red:
         return RangeValues(_minRed.toDouble(), _maxRed.toDouble());
       case ColorType.green:
         return RangeValues(_minGreen.toDouble(), _maxGreen.toDouble());
       case ColorType.blue:
         return RangeValues(_minBlue.toDouble(), _maxBlue.toDouble());
-
     }
   }
-
 }

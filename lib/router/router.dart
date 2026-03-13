@@ -10,17 +10,16 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: "/main",
       name: "main",
-      builder: (BuildContext context, GoRouterState state) {
+      builder: (_, _) {
         return const MainView();
       },
     ),
     GoRoute(
       path: "/settings",
       name: "settings",
-      builder: (BuildContext context, GoRouterState state) {
+      builder: (_, _) {
         return const SettingView();
       },
     ),
   ],
-
 );

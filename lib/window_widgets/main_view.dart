@@ -3,8 +3,10 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:test_app/provider/color_provider.dart';
 
-///view for screen where background color changing randomly generated color
+/// view for screen where background color changing randomly generated color
 class MainView extends StatelessWidget {
+
+  /// constructor
   const MainView({super.key});
 
   @override
@@ -15,7 +17,7 @@ class MainView extends StatelessWidget {
        child: Icon(Icons.settings),
       ),
       body: Consumer<ColorProvider>(
-        builder: (context, colorProvider, child) {
+        builder: (_, colorProvider, _) {
           return InkWell(
             onTap: colorProvider.changeColor,
             child: Container(

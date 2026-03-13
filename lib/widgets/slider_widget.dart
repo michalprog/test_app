@@ -3,10 +3,10 @@ import 'package:test_app/enums_consts/enums.dart';
 import 'package:test_app/provider/color_provider.dart';
 import 'package:test_app/utils/color_utils.dart';
 
-// widgets for sliders that change range for generating random color
+/// widgets for sliders that change range for generating random color
 class SliderWidget extends StatefulWidget {
-final ColorType type;// 0-Red ,1-Green ,2 Blue
-final ColorProvider provider;
+  final ColorType type; // 0-Red ,1-Green ,2 Blue
+  final ColorProvider provider;
   const SliderWidget({required this.provider, required this.type, super.key});
 
   @override
@@ -14,16 +14,18 @@ final ColorProvider provider;
 }
 
 class _SliderWidgetState extends State<SliderWidget> {
-
   @override
   Widget build(BuildContext context) {
     RangeValues values = widget.provider.colorModel.getRange(widget.type);
 
     return Card(
-      margin: EdgeInsets.all(10),
-      borderOnForeground: true,
+      margin: const EdgeInsets.all(10),
       child: ListTile(
-        leading: Container(height: 20,width: 20,color: colorFromEnum(widget.type),),
+        leading: Container(
+          height: 20,
+          width: 20,
+          color: colorFromEnum(widget.type),
+        ),
         title: RangeSlider(
           values: values,
           max: 255,
@@ -35,7 +37,11 @@ class _SliderWidgetState extends State<SliderWidget> {
           onChanged: (RangeValues newValues) {
             setState(() {
               values = newValues;
-              widget.provider.colorModel.changeColors(widget.type, minRgb: values.start.floor(), maxRgb: values.end.floor());
+              widget.provider.colorModel.changeColors(
+                widget.type,
+                minRgb: values.start.floor(),
+                maxRgb: values.end.floor(),
+              );
             });
           },
         ),

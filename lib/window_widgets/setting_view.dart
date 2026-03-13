@@ -16,7 +16,7 @@ class SettingView extends StatelessWidget {
         child: const Icon(Icons.home),
       ),
 body: Consumer<ColorProvider>(
-        builder: (context, colorProvider, child) {
+        builder: (_, colorProvider, _) {
          return InkWell(
            onTap: colorProvider.changeColor,
            child: ColoredBox(
