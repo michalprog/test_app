@@ -1,3 +1,7 @@
+
+import 'package:flutter/material.dart';
+import 'package:test_app/enums_consts/enums.dart';
+
 class ColorModel {
   int _minRed = 0;
   int _maxRed = 255;
@@ -5,27 +9,31 @@ class ColorModel {
   int _maxGreen = 255;
   int _minBlue = 0;
   int _maxBlue = 255;
-  int get minRed => this._minRed;
-  int get maxRed => this._maxRed;
-  int get minGreen => this._minGreen;
-  int get maxGreen => this._maxGreen;
-  int get minBlue => this._minBlue;
-  int get maxBlue => this._maxBlue;
-  void changeColors(int type, {required int minRgb, required int maxRgb}) {
+
+  /// getters for colors
+  int get minRed => _minRed;
+  int get maxRed => _maxRed;
+  int get minGreen => _minGreen;
+  int get maxGreen => _maxGreen;
+  int get minBlue => _minBlue;
+  int get maxBlue => _maxBlue;
+
+  /// function which set the color for type used by slider
+  void changeColors(ColorType type, {required int minRgb, required int maxRgb}) {
     switch (type) {
-      case 0:
+      case ColorType.red:
         {
           _minRed = minRgb;
           _maxRed = maxRgb;
           break;
         }
-      case 1:
+      case ColorType.green:
         {
           _minGreen = minRgb;
           _maxGreen = maxRgb;
           break;
         }
-      case 2:
+      case ColorType.blue:
         {
           _minBlue = minRgb;
           _maxBlue = maxRgb;
@@ -33,4 +41,18 @@ class ColorModel {
         }
     }
   }
+  RangeValues getRange(ColorType type)
+  {
+    switch(type)
+        {
+      case ColorType.red:
+        return RangeValues(_minRed.toDouble(), _maxRed.toDouble());
+      case ColorType.green:
+        return RangeValues(_minGreen.toDouble(), _maxGreen.toDouble());
+      case ColorType.blue:
+        return RangeValues(_minBlue.toDouble(), _maxBlue.toDouble());
+
+    }
+  }
+
 }
