@@ -14,7 +14,7 @@ class MainView extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () => context.goNamed("settings"),
-       child: Icon(Icons.settings),
+       child: const Icon(Icons.settings),
       ),
       body: Consumer<ColorProvider>(
         builder: (_, colorProvider, _) {
